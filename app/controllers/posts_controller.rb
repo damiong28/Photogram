@@ -10,8 +10,13 @@ class PostsController < ApplicationController
   end
   
   def create
-    @post = Post.create(post_params)
-    redirect_to posts_path
+    if @post = Post.create(post_params)
+      flash[:success] = "Post created"
+      redirect_to posts_path
+    else
+      flash.now[:alert] = "Failed to create post, please check your submission and try again"
+      render 'new'
+    end
   end
   
   def show
@@ -25,13 +30,19 @@ class PostsController < ApplicationController
       flash[:success] = "Post edited"
       redirect_to @post
     else
+      flash.now[:alert] = "Failed to edit post, please check your submission and try again"
       render 'edit'
     end
   end
   
   def destroy
-    @post.destroy
-    redirect_to posts_path
+    if @post.destroy
+      flash[:success] = "Post deleted"
+      redirect_to posts_path
+    else
+      flash.now[:alert] = "Failed to delete post, please try again"
+      render 'edit'
+    end
   end
   
   private
