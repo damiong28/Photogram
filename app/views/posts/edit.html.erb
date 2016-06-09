@@ -17,3 +17,10 @@
     </div>
   <% end %>
 </div>
+
+<div class='text-center edit-links'>
+  <%= link_to "Cancel", posts_path %> |
+  <%= link_to "Delete", @post, method: :delete,
+        data: { confirm: "Delete this post?" } %>
+</div>
+  
