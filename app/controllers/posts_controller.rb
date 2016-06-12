@@ -1,20 +1,25 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-        
+  before_action :authenticate_user!
+  before_action :correct_user, only: [:edit, :update, :destroy]
+  
+          
   def index
     @posts = Post.all
   end
       
   def new
-    @post = Post.new
+    @post = current_user.posts.build
   end
   
   def create
-    if @post = Post.create(post_params)
+    @post = current_user.posts.build(post_params)
+    if @post.save
       flash[:success] = "Post created"
       redirect_to posts_path
     else
-      flash.now[:alert] = "Failed to create post, please check your submission and try again"
+      flash.now[:alert] = "Failed to create post, please check your submission 
+                            and try again"
       render 'new'
     end
   end
@@ -26,7 +31,8 @@ class PostsController < ApplicationController
   end
   
   def update
-    if @post.update(post_params)
+    @post.update(post_params)
+    if @post.save
       flash[:success] = "Post edited"
       redirect_to @post
     else
@@ -36,13 +42,9 @@ class PostsController < ApplicationController
   end
   
   def destroy
-    if @post.destroy
-      flash[:success] = "Post deleted"
-      redirect_to posts_path
-    else
-      flash.now[:alert] = "Failed to delete post, please try again"
-      render 'edit'
-    end
+    @post.destroy
+    flash[:success] = "Post deleted"
+    redirect_to posts_path
   end
   
   private
@@ -53,5 +55,12 @@ class PostsController < ApplicationController
   
   def set_post
     @post=Post.find(params[:id])
+  end
+  
+  def correct_user
+    unless @post.user.id == current_user.id
+      flash[:alert] = "That post doesn't belong to you!"
+      redirect_to root_path
+    end
   end
 end

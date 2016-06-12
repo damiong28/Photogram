@@ -1,19 +1,25 @@
-
 <div class="posts-wrapper row">
   <div class="post">
     <div class="post-head">
       <div class="name">
-        Garry Gomez
+        <%= @post.user.username %>
       </div>
     </div>
     <div class="image center-block">
-      <%= image_tag @post.image.url(:medium), class:'img-responsive' %>
+      <%= image_tag @post.image.url(:medium), class:'img-responsive center-block' %>
     </div>
     <p class="caption">
       <%= @post.caption %>
     </p>
-    <div class='text-center edit-links'>
-      <%= link_to "Edit", edit_post_path(@post) %>
-    </div> 
+    <% if current_user.id == @post.user.id %>
+      <div class='text-center edit-links'>
+        <%= link_to "Cancel", posts_path %> |
+        <%= link_to "Edit", edit_post_path(@post) %> 
+      </div>
+    <% else %>
+      <div class='text-center edit-links'>
+        <%= link_to "Cancel", posts_path %>
+      </div>
+    <% end %>
   </div>
 </div>
