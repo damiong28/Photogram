@@ -1,24 +1,19 @@
+A work-in-progress instagram clone. I am using the Devise gem for the first time and boy do I love it. Building your own authentication system is a lot of work. I like the devwalks tutorials as he doesn't hold your hand so much, just tells you what you need to do and lets you try on your own to get it done. I feel like I am learning a lot more this way, and it's a lot more satisfying!
 
-     ,-----.,--.                  ,--. ,---.   ,--.,------.  ,------.
-    '  .--./|  | ,---. ,--.,--. ,-|  || o   \  |  ||  .-.  \ |  .---'
-    |  |    |  || .-. ||  ||  |' .-. |`..'  |  |  ||  |  \  :|  `--, 
-    '  '--'\|  |' '-' ''  ''  '\ `-' | .'  /   |  ||  '--'  /|  `---.
-     `-----'`--' `---'  `----'  `---'  `--'    `--'`-------' `------'
-    ----------------------------------------------------------------- 
+Finished:
 
+RESTFUL actions for posts
 
-Welcome to your Rails project on Cloud9 IDE!
+RESTFUL actions for comments
 
-To get started, just do the following:
+User signup/login/ownership of comments and posts
 
-1. Run the project with the "Run Project" button in the menu bar on top of the IDE.
-2. Preview your new app by clicking on the URL that appears in the Run panel below (https://photogram-necrostic.c9users.io/).
+Navbar and Index styling (for the most part)
 
-Happy coding!
-The Cloud9 IDE team
+To Do's:
 
+Add following users
 
-## Support & Documentation
+Add liking posts and comments
 
-Visit http://docs.c9.io for support, or to learn more about using Cloud9 IDE. 
-To watch some training videos, visit http://www.youtube.com/user/c9ide
+Style the devise forms for login and signup
