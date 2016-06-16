@@ -7,8 +7,8 @@
       </div>
     </div>
     <div class="image center-block">
-      <%= link_to (image_tag post.image.url(:medium), class:'img-responsive'), 
-                  post_path(post) %>
+      <%= link_to (image_tag post.image.url(:medium), class:'img-responsive 
+                  center-block'), post_path(post) %>
     </div>
     <div class="post-bottom">
       <div class="caption">
@@ -19,15 +19,13 @@
       </div>
       <div class="comments" id="comments_<%= post.id %>">
         <% if post.comments %>
-          <% post.comments.each do |comment| %>
-            <%= render post.comments, post: post%>
-          <% end %>
+          <%= render post.comments, post: post%>
         <% end %>
       </div>
     </div>
     <div class="comment-like-form row">
       <div class="like-button col-sm-1">
-        <span>(class="glyphicon glyphicon-heart-empty")</span>
+        <span class="glyphicon glyphicon-heart-empty"></span>
       </div>
       <div class="comment-form col-sm-11">
         <%= form_for( [post, post.comments.new], remote:true) do |f| %>

@@ -4,15 +4,12 @@ feature 'Index displays a list of posts' do
   
   background do
     user = create(:user)
-    visit '/'
-    fill_in 'Email', with: 'foo@bar.com'
-    fill_in 'Password', with: 'password'
-    click_button 'Log in'
+    sign_in_with user 
   end
   
   scenario 'the index displays correct created job information' do
-    job_one = create(:post, caption: "This is post one")
-    job_two = create(:post, caption: "This is the second post")
+    create(:post, caption: "This is post one")
+    create(:post, caption: "This is the second post")
 
     visit '/'
     expect(page).to have_content("This is post one")
