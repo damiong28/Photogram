@@ -23,9 +23,9 @@ class CommentsController < ApplicationController
         format.js 
       end
     else
-      flash[:alert] = "Failed to create comment, please check your submission 
+      flash.now[:alert] = "Failed to create comment, please check your submission 
                             and try again"
-      render 'new'
+      render new
     end
   end
   
