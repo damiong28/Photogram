@@ -12,14 +12,14 @@ feature 'Editing posts' do
   end
   
   scenario 'Can edit a post' do
-    fill_in 'Caption', with: "Oh god, you weren't supposed to see this!"
+    fill_in 'post_caption', with: "Oh god, you weren't supposed to see this!"
     click_button 'Update Post'
     expect(page).to have_content("Post edited")
     expect(page).to have_content("Oh god, you weren't supposed to see this!")
   end
   
   scenario "a post won't update without an attached image" do
-    attach_file('Image', 'spec/files/coffee.zip')
+    attach_file('post_image', 'spec/files/coffee.zip')
     click_button 'Update Post'
     expect(page).to have_content("Failed to edit post")
   end

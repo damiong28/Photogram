@@ -4,9 +4,14 @@ class PostsController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy]
   
           
-  def index
-    @posts = Post.all
-  end
+  def index  
+    @posts = Post.all.order('created_at DESC').page params[:page]
+    
+    respond_to do |format|
+      format.js
+      format.html
+    end
+  end  
       
   def new
     @post = current_user.posts.build
