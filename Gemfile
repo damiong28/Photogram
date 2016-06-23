@@ -15,6 +15,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'paperclip', '~> 5.0.0.beta1'
 gem 'simple_form'
 gem 'kaminari', '~> 0.16.3'
+gem 'jquery-turbolinks'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

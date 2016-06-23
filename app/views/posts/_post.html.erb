@@ -3,7 +3,7 @@
     <div class="post-head">
       <div class="thumb-img"></div>
       <div class="user-name">
-        <%= post.user.username %>
+        <%= link_to post.user.username, profile_path(post.user.username) %>
       </div>
     </div>
     <div class="image center-block">
@@ -13,13 +13,21 @@
     <div class="post-bottom">
       <div class="caption">
         <div class="user-name">
-          <%= post.user.username %>
+          <%= link_to post.user.username, profile_path(post.user.username) %>
         </div>
         <%= post.caption %>
       </div>
       <div class="comments" id="comments_<%= post.id %>">
-        <% if post.comments %>
-          <%= render post.comments, post: post%>
+        <% if post.comments.any? %>
+          <div class="paginator", id="#comments-paginator-#{post.id}">
+            <% unless post.comments.count <= 4 %>
+              <%= link_to "view all #{post.comments.count} comments", 
+                  post_comments_path(post), remote: true, 
+                  class: 'more-comments', data: {post_id: "#{post.id}", 
+                  type: "html"} %>
+            <% end %>
+          </div>
+          <%= render post.comments.last(4), post: post %>
         <% end %>
       </div>
     </div>
