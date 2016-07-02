@@ -16,7 +16,6 @@ feature 'editing user profiles' do
   scenario "a user can change their own profile details" do 
     click_link "testuser", match: :first
     click_link "Edit Profile"
-    #click_button "user_avatar"
     attach_file('user_avatar', "spec/files/images/coffee.jpg")
     fill_in 'user_bio', with: 'Is this real life?' 
     click_button "Update Profile"
