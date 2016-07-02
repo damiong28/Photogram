@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :like, :unlike]
   before_action :authenticate_user!
   before_action :correct_user, only: [:edit, :update, :destroy]
   
@@ -50,6 +50,24 @@ class PostsController < ApplicationController
     @post.destroy
     flash[:success] = "Post deleted"
     redirect_to posts_path
+  end
+  
+  def like
+    if @post.liked_by current_user
+        respond_to do |format|
+          format.js
+          format.html { redirect_to :back }
+      end
+    end
+  end
+  
+  def unlike
+    if @post.unliked_by current_user
+      respond_to do |format|
+        format.js
+        format.html { redirect_to :back }
+      end
+    end
   end
   
   private

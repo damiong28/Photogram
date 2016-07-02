@@ -1,35 +1,41 @@
-// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
-@import "bootstrap";
+ @import "bootstrap";
+
+html {  
+  height: 100%;
+}
 
 body {  
+  height: 100%;
   background-color: #fafafa;
   font-family: proxima-nova, 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 
+.alert {
+  margin-bottom: 0px;
+}
+
 /* ## NAVBAR CUSTOMISATIONS ## */
 
-
+.navbar {
+  margin-bottom: 0px;
+}
 
 .navbar-brand {
   a {
     color: #125688;
   }
 }
-.navbar {
-  margin-bottom: 0px !important;
-}
+
 .navbar-default {
   background-color: #fff;
-  height: 54px;
-  margin-bottom: 0px;
   .navbar-nav li a {
     color: #125688;
   }
 }
 
 .navbar-container {
-  width: 70%;
+  max-width: 640px;
   margin: 0 auto;
 }
 
@@ -84,7 +90,6 @@ body {
   }
   .user-name {
     font-weight: 500;
-    margin-right: 0.3em;
     color: #125688;
     font-size: 15px;
   }
@@ -103,7 +108,6 @@ body {
     }
   }
   margin-bottom: 7px;
-  padding-top: 24px;
   padding-left: 24px;
   padding-right: 24px;
   padding-bottom: 10px;
@@ -117,7 +121,6 @@ body {
   border: medium none;
   width: 100%;
   color: #4B4F54;
-  word-wrap: break-word;
 }
 
 .comment-like-form {
@@ -129,32 +132,19 @@ body {
   align-items: center;
   border-top: 1px solid #EEEFEF;
   flex-direction: row;
-  justify-content: center;
+  justify-content: center; 
 }
 
-/* ## Wrapper and styling for the new and edit views ## */
-
-.form-wrapper {
-  width: 60%;
-  margin: 20px auto;
-  background-color: #fff;
-  padding: 40px;
-  border: 1px solid #eeefef;
-  border-radius: 3px;
-}
+/* ## Wrapper and styling for the new, edit & devise views ## */
 
 .edit-links {
   margin-top: 20px;
   margin-bottom: 40px;
 }
 
-html {  
-  height: 100%;
-}
-
 .registration-bg {
   padding-top: 4em;
-  height: 100vh;
+  height: 100%;
   background-image: image-url('regbackg.jpg');
   -moz-background-size: cover;
   -webkit-background-size: cover;
@@ -164,7 +154,7 @@ html {
 
 .login-bg {
   padding-top: 4em;
-  height: 100vh;
+  height: 100%;
   background-image: image-url('loginbg.jpg');
   -moz-background-size: cover;
   -webkit-background-size: cover;
@@ -189,22 +179,15 @@ html {
   }
 }
 
-.alert {
-  margin-bottom: 0px !important;
-}
-
-.input-lg {
-  margin-bottom:10px;
-}
-
 #image-preview {
-  margin: 0px auto;
+  margin: 0 auto;
 }
 
 #post_image {
   padding: 1em;
   margin: 0px auto;
 }
+
 
 #paginator {
   color: #4090DB;
@@ -241,10 +224,9 @@ html {
   }
 }
 
-// profile page
-
-#user_avatar {
-  margin: 20px auto;
+.comment-submit-button {
+  position: absolute;
+  left: -9999px;
 }
 
 .profile-header {
@@ -273,4 +255,29 @@ html {
 
 .profile-bio {
   margin-top: 20px;
+}
+
+#user_bio {
+  border: 1px solid gray;
+}
+
+#user_avatar {
+  padding: 1em;
+  margin: 0px auto;
+}
+
+.likes {
+  margin-top: 20px;
+  margin-bottom: 7px;
+  color: #4b4f54;
+}
+
+.like {
+  text-decoration: none;
+  color: red;
+}
+
+.like-button a:hover, a:focus {
+  text-decoration: none;
+  color: red;
 }

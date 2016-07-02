@@ -7,7 +7,7 @@ feature 'Editing posts' do
     sign_in_with user 
     create(:post)
     visit '/'
-    find(:xpath, "//a[contains(@href,'posts/1')]").click
+    find(:xpath, "//a[contains(@href,'posts/1')]", match: :first).click
     click_link 'Edit'
   end
   
@@ -32,7 +32,7 @@ feature 'Editing posts' do
                         password_confirmation: 'password',
                         id: 2)
     sign_in_with other_user
-    find(:xpath, "//a[contains(@href,'posts/1')]").click
+    find(:xpath, "//a[contains(@href,'posts/1')]", match: :first).click
     expect(page).to_not have_content("Edit")
     visit '/posts/1/edit'
     expect(page).to have_content("That post doesn't belong to you!")
