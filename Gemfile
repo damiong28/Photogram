@@ -36,6 +36,6 @@ end
 
 group :production do
   gem 'pg'
-  gem 'spring'
+  gem 'rails_12factor' 
 end
 
