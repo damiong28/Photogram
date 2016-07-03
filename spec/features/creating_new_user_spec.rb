@@ -13,7 +13,7 @@ feature 'Creating a new user' do
     fill_in 'user_password', with: 'supersecret', match: :first
     fill_in 'user_password_confirmation', with: 'supersecret'
     click_button 'Sign up'
-    expect(page).to have_content('Welcome! You have signed up successfully.') 
+    expect(page).to have_content('Welcome! Click New Post at the top of the screen to get started uploading your photograms.') 
    end
    
    scenario 'requires a user name to successfully create an account' do
