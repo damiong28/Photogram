@@ -1,19 +1,5 @@
-A work-in-progress instagram clone. I am using the Devise gem for the first time and boy do I love it. Building your own authentication system is a lot of work. I like the devwalks tutorials as he doesn't hold your hand so much, just tells you what you need to do and lets you try on your own to get it done. I feel like I am learning a lot more this way, and it's a lot more satisfying!
+This is an instagram clone written in Ruby on Rails to help me learn how to build web apps.
 
-Finished:
+You can view it's latest commit live on the world wide web at https://necro-photogram.herokuapp.com
 
-RESTFUL actions for posts
-
-RESTFUL actions for comments
-
-User signup/login/ownership of comments and posts
-
-Navbar and Index styling (for the most part)
-
-To Do's:
-
-Add following users
-
-Add liking posts and comments
-
-Style the devise forms for login and signup
+To view the tutorial I used to build the app visit devwalks.com
