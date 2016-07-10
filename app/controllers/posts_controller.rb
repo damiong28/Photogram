@@ -54,6 +54,7 @@ class PostsController < ApplicationController
   
   def like
     if @post.liked_by current_user
+      create_notification @post
         respond_to do |format|
           format.js
           format.html { redirect_to :back }
@@ -85,5 +86,14 @@ class PostsController < ApplicationController
       flash[:alert] = "That post doesn't belong to you!"
       redirect_to root_path
     end
+  end
+  
+  def create_notification(post)
+    return if post.user == current_user
+    Notification.create(user_id: post.user.id,
+                        notified_by_id: current_user.id,
+                        post_id: post.id,
+                        identifier: post.id,
+                        notice_type: 'like')
   end
 end

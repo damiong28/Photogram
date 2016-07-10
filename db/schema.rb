@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160623193904) do
+ActiveRecord::Schema.define(version: 20160704211126) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id"
@@ -23,6 +23,21 @@ ActiveRecord::Schema.define(version: 20160623193904) do
 
   add_index "comments", ["post_id"], name: "index_comments_on_post_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "notified_by_id"
+    t.integer  "post_id"
+    t.integer  "identifier"
+    t.string   "notice_type"
+    t.boolean  "read",           default: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+  end
+
+  add_index "notifications", ["notified_by_id"], name: "index_notifications_on_notified_by_id"
+  add_index "notifications", ["post_id"], name: "index_notifications_on_post_id"
+  add_index "notifications", ["user_id"], name: "index_notifications_on_user_id"
 
   create_table "posts", force: :cascade do |t|
     t.string   "caption"

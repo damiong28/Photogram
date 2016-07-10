@@ -1,0 +1,16 @@
+<% if selector == "long" %>
+  <li class="text-right">
+    <div class="img-circle text-left col-md-2 mini-avatar">
+        <%= profile_avatar_select(notification.user) %>
+    </div>
+    <% unless notification.read %>
+      <span class="glyphicon glyphicon-asterisk"></span>
+    <% end %>
+    <%= link_to "#{notification.notified_by.username} left you a #{notification.notice_type}", link_through_path(notification) %>
+    <%= time_ago_in_words(notification.created_at) + " ago" %>
+  </li>
+<% elsif selector == "short" %>
+  <li>
+    <%= link_to "#{notification.notified_by.username} left you a #{notification.notice_type}", link_through_path(notification) %>
+  </li>
+<% end %>
