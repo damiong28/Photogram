@@ -1,0 +1,9 @@
+<div id="posts">
+  <%= render "posts", posts: @posts %>
+</div>
+
+<% if @posts.length > 10 %>
+  <div id="paginator", class="text-center">
+    <%= link_to_next_page @posts, 'LOAD MORE', remote: true, id: 'load_more' %>
+  </div>
+<% end %>

@@ -10,7 +10,7 @@ feature 'editing user profiles' do
     create(:post, caption: "first users post", user_id: user1.id)
     create(:post, caption: "second users post", user_id: user2.id)
     sign_in_with user1
-    visit "/"
+    visit "/browse"
   end
   
   scenario "a user can change their own profile details" do 
@@ -31,6 +31,7 @@ feature 'editing user profiles' do
   end
   
   scenario "a user cannot navigate directly to edit a users profile" do
+    visit '/'
     visit '/imposter/edit'
     expect(page).to have_content("That profile doesn't belong to you!")
     expect(page.current_path).to eq(root_path)

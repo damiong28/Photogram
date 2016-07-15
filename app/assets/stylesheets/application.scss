@@ -1,5 +1,5 @@
 @import "bootstrap-sprockets";
- @import "bootstrap";
+@import "bootstrap";
 
 html {  
   height: 100%;
@@ -308,5 +308,44 @@ body {
 }
 
 .mini-avatar {
-  margin-left: 3em;
+  height: 60px;
+  width: 60px;
+}
+
+.follow-button {
+  text-transform: uppercase;
+  border-color: #4090db;
+  color: #4090db;
+  margin-left: 20px;
+  &:visited, &:focus, &:hover {
+    border-color: #2D6396;
+    color: #2D6396;
+  }
+}
+
+.unfollow-button {
+  text-transform: uppercase;
+  border-color: #66bd2b;
+  background-color: #66bd2b;
+  color: white;
+  margin-left: 20px;
+  &:visited, &:focus, &:hover {
+    border-color: #47821F;
+    background-color: #47821F;
+    color: white;
+  }
+}
+
+.list-group-item {
+  padding: 0px !important;
+  margin-top: 0px !important;
+}
+
+.notification-item {
+  margin-top: 0px !important;
+}
+
+.notification-image {
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
 }

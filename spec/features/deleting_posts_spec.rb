@@ -9,7 +9,7 @@ feature 'Deleting posts' do
   
   scenario 'Delete a post' do
     create(:post, caption: "I love my job!")
-    visit '/'
+    visit '/browse/'
     find(:xpath, "//a[contains(@href,'posts/1')]", match: :first).click
     click_link 'Edit'
     click_link 'Delete'

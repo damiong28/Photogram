@@ -6,7 +6,7 @@ feature 'liking posts' do
     user = create(:user)
     create(:post)
     sign_in_with user
-    visit '/'
+    visit '/browse'
   end
   
   scenario 'can like a post' do

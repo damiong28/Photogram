@@ -10,7 +10,7 @@ feature 'viewing user profiles' do
     post1 = create(:post, caption: "first users post", user_id: 1, id: 1)
     post2 = create(:post, caption: "second users post", user_id: 2, id: 2)
     sign_in_with user1
-    visit "/"
+    visit "/browse"
     click_link "#{user1.username}", match: :first
   end
   

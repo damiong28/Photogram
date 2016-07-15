@@ -6,7 +6,7 @@ feature 'Editing posts' do
     user = create(:user)
     sign_in_with user 
     create(:post)
-    visit '/'
+    visit '/browse/'
     find(:xpath, "//a[contains(@href,'posts/1')]", match: :first).click
     click_link 'Edit'
   end
@@ -32,6 +32,7 @@ feature 'Editing posts' do
                         password_confirmation: 'password',
                         id: 2)
     sign_in_with other_user
+    visit '/browse'
     find(:xpath, "//a[contains(@href,'posts/1')]", match: :first).click
     expect(page).to_not have_content("Edit")
     visit '/posts/1/edit'

@@ -22,4 +22,11 @@ module ApplicationHelper
             class: 'img-responsive img-circle profile-image'
   end  
   
+  def notification_avatar(user)
+    if user.avatar.exists?
+      return image_tag user.avatar.url(:small), class: 'img-thumbnail mini-avatar'
+    else
+      image_tag 'default-avatar.jpg', class: 'img-thumbnail mini-avatar'
+    end
+  end
 end

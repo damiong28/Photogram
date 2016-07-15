@@ -13,6 +13,7 @@ feature 'Creating posts' do
     attach_file('post_image', "spec/files/images/coffee.jpg")
     fill_in 'post_caption', with: 'nom nom nom #coffeetime' 
     click_button 'Create Post'
+    visit '/browse/'
     expect(page).to have_content('#coffeetime')
     expect(page).to have_css("img[src*='coffee.jpg']")
     expect(page).to have_content('testuser')

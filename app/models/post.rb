@@ -7,4 +7,5 @@ class Post < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   has_many :notifications, dependent: :destroy
   acts_as_votable
+  scope :of_followed_users, -> (following_users) { where user_id: following_users }  
 end

@@ -41,7 +41,7 @@
       <div class="comment-form col-sm-11">
         <%= form_for( [post, post.comments.new], remote:true) do |f| %>
           <%= f.text_field :content, placeholder: 'Add a comment...' %>
-          <%= f.submit 'Submit', class: 'comment-submit-button' %>
+          <%= f.submit 'Submit', class: 'button comment-submit-button' %>
         <% end %>
         </div>
       </div>

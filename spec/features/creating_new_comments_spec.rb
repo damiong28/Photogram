@@ -6,9 +6,10 @@ feature 'Creating comments' do
     user = create(:user)
     post = create(:post)
     sign_in_with user
-    visit '/'
+    visit '/browse/'
     fill_in 'comment_content', with: ';P', match: :first
     click_button 'Submit'
+    visit '/browse/'
     expect(page).to have_content ';P'
   end
   

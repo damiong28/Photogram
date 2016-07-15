@@ -1,13 +1,21 @@
 <% if selector == "long" %>
-  <li class="text-right">
-    <div class="img-circle text-left col-md-2 mini-avatar">
-        <%= profile_avatar_select(notification.user) %>
-    </div>
-    <% unless notification.read %>
-      <span class="glyphicon glyphicon-asterisk"></span>
-    <% end %>
-    <%= link_to "#{notification.notified_by.username} left you a #{notification.notice_type}", link_through_path(notification) %>
-    <%= time_ago_in_words(notification.created_at) + " ago" %>
+  <li class="list-group-item">
+    <ul class="list-inline list-unstyled text-center">
+      <li class="notification-item">
+        <% unless notification.read %>
+          <span class="glyphicon glyphicon-asterisk"></span>
+        <% end %>
+      </li>
+      <li class="notification-item notification-image">
+        <%= notification_avatar(notification.notified_by) %>
+      </li>
+      <li class="notification-item">
+        <%= link_to "#{notification.notified_by.username} left you a #{notification.notice_type}", link_through_path(notification) %>
+      </li>
+      <li class="notification-item">
+        <%= time_ago_in_words(notification.created_at) + " ago" %>
+      </li>
+    </ul>
   </li>
 <% elsif selector == "short" %>
   <li>

@@ -17,22 +17,25 @@ feature 'Deleting comments' do
   end
   
   scenario 'Can delete a comment belonging to you' do
-    visit '/'
+    visit '/browse/'
     find(:xpath, "//a[contains(@href,'1/comments/1')]").click
     expect(page).to_not have_content('rofl')
     expect(page).to have_content('Comment deleted')
   end
   
   scenario "Other users can't delete your comments via UI" do
+    visit '/browse/'
     expect(page).to have_content('woot')
     expect(page).to_not have_css("#delete-2")
   end
   
   scenario "Other users can't delete your comments via URLs" do
-    visit '/'
+    visit '/browse/'
     expect(page).to have_content('rofl')
+    visit '/'
     page.driver.submit :delete, "posts/1/comments/2", {}
     expect(page).to have_content("That comment doesn't belong to you!")
+    visit '/browse/'
     expect(page).to have_content('rofl')
   end
   
